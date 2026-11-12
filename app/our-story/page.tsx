@@ -37,8 +37,14 @@ export default function OurStory() {
         <Sparkle className="twinkle absolute left-[10%] top-16 h-7 w-7 text-gold" />
         <Heart className="float absolute right-[10%] top-28 h-9 w-9 text-rose/60" />
         <Reveal className="mx-auto max-w-3xl px-4">
-          <Image src="/images/logo-sm.webp" alt="" width={140} height={140} className="float mx-auto h-28 w-28" />
-          <p className="mt-4 text-sm font-black uppercase tracking-[0.2em] text-amber">Café Palace · Food Truck History</p>
+          <div className="relative mx-auto h-56 w-56 sm:h-64 sm:w-64">
+            <div className="spin-slow absolute inset-[-10px] rounded-full border-[3px] border-dashed border-gold/80" aria-hidden="true" />
+            <Image src="/images/owner.webp" alt="The owner of Café Palace smiling" width={450} height={450} priority className="h-full w-full rounded-full object-cover shadow-pop ring-[6px] ring-white" />
+            <Crown className="absolute -top-9 left-1/2 h-12 w-16 -translate-x-1/2 -rotate-6 drop-shadow-md" />
+            <Heart className="float absolute -right-3 bottom-4 h-10 w-10 text-rose" />
+          </div>
+          <p className="mt-6 font-display text-3xl font-bold italic text-cocoa">The heart behind the palace</p>
+          <p className="mt-3 text-sm font-black uppercase tracking-[0.2em] text-amber">Café Palace · Food Truck History</p>
           <h1 className="mt-2 font-display text-6xl font-bold italic leading-none text-berry sm:text-8xl">Our Story</h1>
         </Reveal>
       </section>
