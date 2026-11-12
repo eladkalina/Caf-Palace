@@ -37,11 +37,11 @@ export default function OurStory() {
         <Sparkle className="twinkle absolute left-[10%] top-16 h-7 w-7 text-gold" />
         <Heart className="float absolute right-[10%] top-28 h-9 w-9 text-rose/60" />
         <Reveal className="mx-auto max-w-3xl px-4">
-          <div className="relative mx-auto h-56 w-56 sm:h-64 sm:w-64">
-            <div className="spin-slow absolute inset-[-10px] rounded-full border-[3px] border-dashed border-gold/80" aria-hidden="true" />
-            <Image src="/images/owner.webp" alt="The owner of Café Palace smiling" width={450} height={450} priority className="h-full w-full rounded-full object-cover shadow-pop ring-[6px] ring-white" />
-            <Crown className="absolute -top-9 left-1/2 h-12 w-16 -translate-x-1/2 -rotate-6 drop-shadow-md" />
-            <Heart className="float absolute -right-3 bottom-4 h-10 w-10 text-rose" />
+          <div className="relative mx-auto h-72 w-72 sm:h-96 sm:w-96">
+            <div className="absolute inset-[-12px] rotate-3 rounded-[3rem] border-[3px] border-dashed border-gold/80" aria-hidden="true" />
+            <Image src="/images/owner.webp" alt="The owner of Café Palace smiling" width={600} height={600} priority sizes="(min-width: 640px) 384px, 288px" className="h-full w-full rounded-[2.5rem] object-cover shadow-pop ring-[6px] ring-white" />
+            <Crown className="absolute -top-10 left-1/2 h-14 w-20 -translate-x-1/2 -rotate-6 drop-shadow-md" />
+            <Heart className="float absolute -left-4 bottom-6 h-12 w-12 text-rose" />
           </div>
           <p className="mt-6 font-display text-3xl font-bold italic text-cocoa">The heart behind the palace</p>
           <p className="mt-3 text-sm font-black uppercase tracking-[0.2em] text-amber">Café Palace · Food Truck History</p>
