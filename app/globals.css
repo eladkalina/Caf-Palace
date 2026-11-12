@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-berry: #d3175e;
+  --color-berry-dark: #a50f49;
+  --color-rose: #ff5c97;
+  --color-petal: #ffd3e2;
+  --color-blush: #fff0f5;
+  --color-cream: #fff9f1;
+  --color-gold: #f7b63b;
+  --color-gold-deep: #d9902a;
+  --color-amber: #f08a24;
+  --color-cocoa: #5a2616;
+  --color-leaf: #6fae4f;
+
+  --font-display: "Lobster Two", "Brush Script MT", cursive;
+  --font-sans: "Nunito Variable", ui-rounded, system-ui, sans-serif;
+
+  --shadow-pop: 0 10px 30px -8px rgb(211 23 94 / 0.35);
+  --shadow-soft: 0 18px 50px -20px rgb(90 38 22 / 0.35);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-cocoa);
+  background: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+::selection { background: var(--color-petal); color: var(--color-berry-dark); }
+:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 3px; border-radius: 8px; }
+
+/* ───────── Reusable decorations ───────── */
+.awning {
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath d='M0 0h40v20a20 20 0 0 1-40 0z' fill='%23e8266f'/%3E%3Cpath d='M40 0h40v20a20 20 0 0 1-40 0z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  filter: drop-shadow(0 6px 6px rgb(90 38 22 / 0.18));
+}
+.awning-gold {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cpath d='M0 0h40v20a20 20 0 0 1-40 0z' fill='%23f7b63b'/%3E%3Cpath d='M40 0h40v20a20 20 0 0 1-40 0z' fill='%23fff9f1'/%3E%3C/svg%3E");
+}
+.scallop {
+  height: 26px;
+  background: radial-gradient(circle at 26px 0, var(--scallop, var(--color-cream)) 25px, transparent 26px) repeat-x;
+  background-size: 52px 26px;
+}
+.scallop-up {
+  height: 26px;
+  background: radial-gradient(circle at 26px 26px, var(--scallop, var(--color-cream)) 25px, transparent 26px) repeat-x;
+  background-size: 52px 26px;
+}
+.dots {
+  background-image: radial-gradient(rgb(255 255 255 / 0.55) 2px, transparent 2.5px);
+  background-size: 26px 26px;
+}
+.leader { flex: 1; border-bottom: 3px dotted rgb(90 38 22 / 0.35); transform: translateY(-5px); min-width: 1rem; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border-radius: 999px; padding: .95rem 1.7rem; font-weight: 800; letter-spacing: .01em;
+  transition: transform .2s cubic-bezier(.2,.9,.3,1.4), box-shadow .2s, background .2s;
+}
+.btn:hover { transform: translateY(-3px) scale(1.03); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn-primary { background: linear-gradient(180deg, #ee2a78, var(--color-berry)); color: #fff; box-shadow: var(--shadow-pop), inset 0 2px 0 rgb(255 255 255 / .3); }
+.btn-gold { background: linear-gradient(180deg, #ffd061, var(--color-gold)); color: var(--color-cocoa); box-shadow: 0 10px 24px -10px rgb(217 144 42 / .8), inset 0 2px 0 rgb(255 255 255 / .5); }
+.btn-ghost { background: #fff; color: var(--color-berry); border: 2px solid var(--color-petal); }
+.btn-ghost:hover { border-color: var(--color-rose); }
+
+.ribbon {
+  position: relative; display: inline-flex; align-items: center; gap: .6rem;
+  padding: .55rem 2.2rem .6rem 1.2rem; color: #fff;
+  font-family: var(--font-display); font-weight: 700; font-style: italic;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 50%, 100% 100%, 0 100%);
+  filter: drop-shadow(0 4px 0 rgb(0 0 0 / .08));
+}
+.ribbon-pink { background: linear-gradient(180deg, #f0307c, var(--color-berry)); }
+.ribbon-orange { background: linear-gradient(180deg, #ffa040, var(--color-amber)); }
+
+.board {
+  background: linear-gradient(180deg, #fff, var(--color-blush));
+  border: 3px solid var(--color-gold);
+  border-radius: 2rem;
+  box-shadow: 0 0 0 6px #fff, var(--shadow-soft);
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, #ee2a78 0%, var(--color-berry-dark) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ───────── Motion ───────── */
+@keyframes float { 0%,100% { transform: translateY(0) rotate(var(--r, 0deg)); } 50% { transform: translateY(-14px) rotate(calc(var(--r, 0deg) + 1.5deg)); } }
+@keyframes twinkle { 0%,100% { opacity: .35; transform: scale(.7) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(20deg); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes drive-in { from { transform: translateX(-60vw); } to { transform: translateX(0); } }
+.float { animation: float 6s ease-in-out infinite; }
+.twinkle { animation: twinkle 3s ease-in-out infinite; }
+.marquee-track { animation: marquee 32s linear infinite; width: max-content; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.spin-slow { animation: spin-slow 40s linear infinite; }
+
+.reveal { transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0ms); }
+.reveal-hidden { opacity: 0; transform: translateY(28px) scale(.98); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float, .twinkle, .marquee-track, .spin-slow { animation: none !important; }
+  .reveal { transition: none; }
+  .reveal-hidden { opacity: 1; transform: none; }
+  .btn:hover { transform: none; }
+}
