@@ -19,6 +19,7 @@ export const menu: MenuCategory[] = [
       { name: "Cheese Pizza", price: 11, image: "/images/dish-pizza.webp" },
       { name: "Greek Salad", price: 10, image: "/images/dish-greek-salad.webp" },
       { name: "Omelet / Sunny Side Up", price: 9, image: "/images/dish-omelet.webp" },
+      { name: "Savory Pastries", price: 11, image: "/images/dish-pastries.webp" },
     ],
   },
   {

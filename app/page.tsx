@@ -6,7 +6,7 @@ import { Check, Clock, Crown, Facebook, Heart, Instagram, Mail, Phone, Pin, Play
 import { featured, fmt } from "@/data/menu";
 import { site } from "@/data/site";
 
-const marquee = ["Pasta Vodka", "Cheese Pizza", "Greek Salad", "Veggie Sushi", "Chocolate Soufflé", "Fruit Parfait", "Smoothies", "Lemonade"];
+const marquee = ["Pasta Vodka", "Cheese Pizza", "Greek Salad", "Savory Pastries", "Veggie Sushi", "Chocolate Soufflé", "Fruit Parfait", "Smoothies", "Lemonade"];
 
 export default function Home() {
   const contacts = [
@@ -96,7 +96,7 @@ export default function Home() {
           {featured.map((d, i) => (
             <Reveal as="li" key={d.name} delay={(i % 3) * 90}>
               <Link href="/menu" className="group relative block overflow-hidden rounded-[2rem] bg-white p-5 shadow-soft ring-2 ring-petal transition duration-300 hover:-translate-y-2 hover:ring-rose">
-                <div className="grid aspect-[4/3] place-items-center rounded-[1.4rem] bg-gradient-to-br from-blush to-petal/70">
+                <div className="grid aspect-[4/3] place-items-center rounded-[1.4rem] bg-[#fdf4f0] ring-1 ring-petal/60">
                   <Image src={d.image} alt={d.name} width={360} height={270} className="h-full w-full object-contain p-3 transition duration-500 group-hover:scale-110 group-hover:-rotate-2" />
                 </div>
                 <div className="mt-4 flex items-center justify-between gap-3">

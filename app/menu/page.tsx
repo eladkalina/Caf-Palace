@@ -7,7 +7,7 @@ import { fmt, menu, type MenuCategory } from "@/data/menu";
 
 export const metadata: Metadata = {
   title: "Menu",
-  description: "Café Palace kosher dairy menu: pasta vodka, cheese pizza, Greek salad, veggie sushi, drinks and desserts.",
+  description: "Café Palace kosher dairy menu: pasta vodka, cheese pizza, Greek salad, savory pastries, veggie sushi, drinks and desserts.",
 };
 
 function Heading({ c }: { c: MenuCategory }) {
@@ -24,10 +24,10 @@ function Price({ n }: { n: number }) {
 
 function Cards({ c }: { c: MenuCategory }) {
   return (
-    <ul className="mt-8 grid gap-5 sm:grid-cols-2">
+    <ul className="mt-8 grid gap-5 sm:grid-cols-2 sm:[&>li:last-child:nth-child(odd)]:col-span-2 sm:[&>li:last-child:nth-child(odd)]:w-[calc(50%-0.625rem)] sm:[&>li:last-child:nth-child(odd)]:justify-self-center">
       {c.items.map((it, i) => (
         <Reveal as="li" key={it.name} delay={i * 80} className="group rounded-[1.6rem] bg-white p-4 shadow-md ring-2 ring-petal/80 transition hover:-translate-y-1.5 hover:ring-rose">
-          <div className="grid aspect-[16/10] place-items-center rounded-2xl bg-gradient-to-br from-blush to-petal/60">
+          <div className="grid aspect-[16/10] place-items-center rounded-2xl bg-[#fdf4f0] ring-1 ring-petal/60">
             {it.image && <Image src={it.image} alt={it.name} width={360} height={225} className="h-full w-full object-contain p-2 transition duration-500 group-hover:scale-110 group-hover:-rotate-2" />}
           </div>
           <div className="mt-4 flex items-baseline gap-3 px-1">
@@ -44,7 +44,7 @@ function Cards({ c }: { c: MenuCategory }) {
 function Feature({ c }: { c: MenuCategory }) {
   return (
     <div className="mt-8 grid items-center gap-6 sm:grid-cols-[0.9fr_1.1fr]">
-      <Reveal className="grid place-items-center rounded-[1.6rem] bg-gradient-to-br from-blush to-petal/60 p-4">
+      <Reveal className="grid place-items-center rounded-[1.6rem] bg-[#fdf4f0] ring-1 ring-petal/60 p-4">
         {c.image && <Image src={c.image} alt={c.title} width={400} height={c.id === "drinks" ? 560 : 300} className={`h-auto w-full object-contain ${c.id === "drinks" ? "max-h-72 w-auto" : "max-w-sm"} float`} style={{ "--r": "-2deg" } as React.CSSProperties} />}
       </Reveal>
       <ul className="space-y-5">
