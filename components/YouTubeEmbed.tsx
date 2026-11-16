@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Play } from "./Icons";
 
 /** Click-to-load player: no YouTube scripts or cookies until the visitor presses play (fast + privacy-friendly). */
-export function YouTubeEmbed({ id, title }: { id: string; title: string }) {
+export function YouTubeEmbed({ id, title, vertical = false }: { id: string; title: string; vertical?: boolean }) {
   const [on, setOn] = useState(false);
   return (
-    <div className="relative aspect-video overflow-hidden rounded-[1.75rem] bg-cocoa shadow-soft ring-4 ring-white">
+    <div className={`relative ${vertical ? "mx-auto aspect-[9/16] w-full max-w-[360px]" : "aspect-video"} overflow-hidden rounded-[1.75rem] bg-cocoa shadow-soft ring-4 ring-white`}>
       {on ? (
         <iframe
           className="absolute inset-0 h-full w-full"

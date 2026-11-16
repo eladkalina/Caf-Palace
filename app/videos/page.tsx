@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
 import { Play, Sparkle } from "@/components/Icons";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
-import { parseYouTubeId } from "@/lib/youtube";
+import { isShortUrl, parseYouTubeId } from "@/lib/youtube";
 import { videos } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ function ComingSoon({ title }: { title: string }) {
 }
 
 export default function VideosPage() {
-  const items = videos.map((v) => ({ ...v, id: parseYouTubeId(v.url) }));
+  const items = videos.map((v) => ({ ...v, id: parseYouTubeId(v.url), vertical: isShortUrl(v.url) }));
   const [first, ...rest] = items;
   return (
     <>
@@ -40,10 +40,12 @@ export default function VideosPage() {
 
       <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         {first && (
-          <Reveal>
-            {first.id ? <YouTubeEmbed id={first.id} title={first.title} /> : <ComingSoon title={first.title} />}
-            <h2 className="mt-6 font-display text-4xl font-bold italic text-berry sm:text-5xl">{first.title}</h2>
-            <p className="mt-1 text-lg text-cocoa/80">{first.description}</p>
+          <Reveal className={first.vertical ? "grid items-center gap-10 md:grid-cols-[360px_1fr]" : ""}>
+            {first.id ? <YouTubeEmbed id={first.id} title={first.title} vertical={first.vertical} /> : <ComingSoon title={first.title} />}
+            <div className={first.vertical ? "text-center md:text-left" : ""}>
+              <h2 className="mt-6 font-display text-4xl font-bold italic text-berry sm:text-5xl md:mt-0">{first.title}</h2>
+              <p className="mt-2 text-lg text-cocoa/80">{first.description}</p>
+            </div>
           </Reveal>
         )}
 
@@ -51,7 +53,7 @@ export default function VideosPage() {
           <ul className="mt-16 grid gap-10 sm:grid-cols-2">
             {rest.map((v, i) => (
               <Reveal as="li" key={v.title + i} delay={i * 100}>
-                {v.id ? <YouTubeEmbed id={v.id} title={v.title} /> : <ComingSoon title={v.title} />}
+                {v.id ? <YouTubeEmbed id={v.id} title={v.title} vertical={v.vertical} /> : <ComingSoon title={v.title} />}
                 <h3 className="mt-4 text-2xl font-extrabold">{v.title}</h3>
                 <p className="text-cocoa/80">{v.description}</p>
               </Reveal>

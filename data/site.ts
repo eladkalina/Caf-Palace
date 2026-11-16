@@ -33,25 +33,17 @@ export const nav = [
 
 /**
  * ▶️  YouTube videos — paste your links below (watch, youtu.be, shorts or embed links all work).
- * Entries that still say PASTE_YOUTUBE_URL_HERE show a friendly "coming soon" card.
+ * An entry whose URL is not a valid YouTube link shows a friendly "coming soon" card.
  * The first entry is shown large; delete or add entries freely.
  */
 export const videos = [
   {
     title: "Meet Café Palace",
     description: "A little tour of our palace on wheels.",
-    url: "PASTE_YOUTUBE_URL_HERE",
+    url: "https://youtube.com/shorts/qb3YKBtYQZM?feature=share",
   },
-  {
-    title: "Cooking with Grandma's recipes",
-    description: "Behind the scenes in our kitchen.",
-    url: "PASTE_YOUTUBE_URL_HERE",
-  },
-  {
-    title: "A day on the truck",
-    description: "Come hang out with us.",
-    url: "PASTE_YOUTUBE_URL_HERE",
-  },
+  // Add more videos by copying the block above, e.g.:
+  // { title: "Another video", description: "A short description.", url: "https://youtu.be/XXXXXXXXXXX" },
 ];
 
 /**

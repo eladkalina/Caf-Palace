@@ -13,3 +13,12 @@ export function parseYouTubeId(url: string): string | null {
   }
   return null;
 }
+
+/** YouTube Shorts are vertical (9:16), everything else is widescreen. */
+export function isShortUrl(url: string): boolean {
+  try {
+    return new URL(url.trim()).pathname.startsWith("/shorts/");
+  } catch {
+    return false;
+  }
+}
