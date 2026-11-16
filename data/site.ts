@@ -40,7 +40,7 @@ export const videos = [
   {
     title: "Meet Café Palace",
     description: "A little tour of our palace on wheels.",
-    url: "https://youtube.com/shorts/qb3YKBtYQZM?feature=share",
+    url: "https://youtube.com/shorts/f1KVWDL-3Ks?si=6RygZT-K2nvmjkPS",
   },
   // Add more videos by copying the block above, e.g.:
   // { title: "Another video", description: "A short description.", url: "https://youtu.be/XXXXXXXXXXX" },
